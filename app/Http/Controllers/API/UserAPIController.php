@@ -3,9 +3,12 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\APIController;
 use App\Http\Requests\UserUpdateRequest;
+use App\Presenters\UserPresenter;
 use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryEloquent;
 use App\Validators\UserValidator;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
@@ -34,10 +37,13 @@ class UserAPIController extends APIController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $this->repository->pushCriteria(app(RequestCriteria::class));
-        $users = $this->repository->all();
+        $currentPage = $request->get('page', 1);
+        Paginator::currentPageResolver(function() use ($currentPage) {
+            return $currentPage;
+        });
+        $users = $this->repository->paginate(10);
 
         return $this->sendResponse($users);
     }
@@ -51,10 +57,10 @@ class UserAPIController extends APIController
      */
     public function show($id)
     {
-        $user = $this->repository->find($id);
+        $user = $this->repository->skipCriteria()->find($id);
 
-        return response()->json([
-            'data' => $user,
+        return $this->sendResponse([
+            'result' => $user,
         ]);
     }
 

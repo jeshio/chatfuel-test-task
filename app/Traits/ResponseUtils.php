@@ -9,17 +9,9 @@ trait ResponseUtils {
      *
      * @return array
      */
-    public static function makeResponse($data, $nextPageUrl = "", $previousPageUrl = "")
+    public static function makeResponse($data)
     {
-        $response = [
-            'result' => $data,
-        ];
-
-        $nextPageUrl && $response['nextPageUrl'] = $nextPageUrl;
-
-        $previousPageUrl && $response['previousPageUrl'] = $previousPageUrl;
-
-        return $response;
+        return $data;
     }
 
     /**

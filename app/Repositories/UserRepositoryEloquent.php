@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Presenters\UserPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Entities\User;
@@ -13,6 +14,8 @@ use App\Validators\UserValidator;
  */
 class UserRepositoryEloquent extends BaseRepository
 {
+    protected $fieldSearchable = ['name' => 'like'];
+
     /**
      * Specify Model class name
      *
@@ -40,5 +43,6 @@ class UserRepositoryEloquent extends BaseRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+        $this->setPresenter(UserPresenter::class);
     }
 }
