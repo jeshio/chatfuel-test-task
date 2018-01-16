@@ -11,7 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-// настройка webpack для работы с typescript
+mix.webpackConfig({
+  resolve: {
+    alias: {
+      'styles': path.resolve('./resources/assets/sass/'),
+      'components': path.resolve('./resources/assets/js/components'),
+      'tools': path.resolve('./resources/assets/js/tools'),
+      'api': path.resolve('./resources/assets/js/api'),
+    }
+  }
+});
 
 // выполняем компиляцию
 mix.ts('resources/assets/js/app.ts', 'public/js')
