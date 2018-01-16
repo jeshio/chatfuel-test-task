@@ -15,6 +15,7 @@ import './bootstrap';
 class AppCore {
   private instance: Vue;
 
+  // инициализация Vue
   private init() {
     Vue.use(VueRouter);
     Vue.use(VueAxios, axios);

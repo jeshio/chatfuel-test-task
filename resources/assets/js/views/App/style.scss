@@ -1,4 +1,32 @@
+@import "~styles/mixins";
+@import "~styles/variables";
+
 .App {
+  &__layout {
+    @include layout();
+  }
+
+  &__row {
+    @include row();
+  }
+
+  &__col {
+    @include col(9);
+    @include colOff(1);
+
+    &.-full {
+      @include col(12);
+      @include colOff(0);
+    }
+    &.-title {
+      padding: 30px 20px;
+    }
+    &.-blue-bg {
+      background: $blue-color;
+      color: #fff;
+    }
+  }
+
   &__title {
     color: #333;
   }

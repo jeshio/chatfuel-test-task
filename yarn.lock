@@ -7135,6 +7135,10 @@ vue@^2.5.7:
   version "2.5.13"
   resolved "https://registry.npmjs.org/vue/-/vue-2.5.13.tgz#95bd31e20efcf7a7f39239c9aa6787ce8cf578e1"
 
+vuex-class@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/vuex-class/-/vuex-class-0.3.0.tgz#25047ab042580fd4ff3e64cc76603ac217c9190d"
+
 vuex-i18n@^1.10.4:
   version "1.10.4"
   resolved "https://registry.npmjs.org/vuex-i18n/-/vuex-i18n-1.10.4.tgz#e21afcde8f514b16d32a19dfa3e0b1e43be29659"
