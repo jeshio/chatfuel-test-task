@@ -11,6 +11,7 @@ import Locales from './vue-i18n-locales.generated.js';
 import routes from './routes';
 import store from './store';
 import './bootstrap';
+import './class-component-hooks'
 
 class AppCore {
   private instance: Vue;

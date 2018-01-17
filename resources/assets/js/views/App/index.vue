@@ -9,11 +9,6 @@
     +e.layout
       +e.row
         +e.col
-          +e.H1.title {{ message }}
-          +e.P.text
-            | Pug works!
-          +e.P.text
-            | {{ $t('auth.failed') }} — lang works!
           +e.content
             router-view
 </template>

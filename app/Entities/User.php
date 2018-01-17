@@ -11,7 +11,7 @@ class User extends Model implements Transformable
     use TransformableTrait;
 
     public $timestamps = false;
-    protected $fillable = [];
+    protected $fillable = ['name'];
     protected $appends = ['avatarUrl'];
 
     public function getAvatarUrlAttribute()

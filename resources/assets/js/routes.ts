@@ -1,5 +1,6 @@
 const Users = () => import('./views/Users/index.vue');
 const UsersList = () => import('./views/Users/List/index.vue');
+const UsersDetail = () => import('./views/Users/Detail/index.vue');
 
 export default [
   {
@@ -9,6 +10,10 @@ export default [
       {
         path: '',
         component: UsersList,
+      },
+      {
+        path: ':id',
+        component: UsersDetail,
       }
     ],
   }

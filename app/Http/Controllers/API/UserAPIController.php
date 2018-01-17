@@ -59,6 +59,10 @@ class UserAPIController extends APIController
     {
         $user = $this->repository->skipCriteria()->find($id);
 
+        if (!$user) {
+            return $this->sendResponse([], 404);
+        }
+
         return $this->sendResponse([
             'result' => $user,
         ]);
@@ -74,25 +78,26 @@ class UserAPIController extends APIController
      */
     public function update(UserUpdateRequest $request, $id)
     {
-
         try {
-
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
             $user = $this->repository->update($request->all(), $id);
 
+            if (!$user) {
+                return $this->sendResponse([], 404);
+            }
+
             $response = [
-                'message' => 'User updated.',
-                'data'    => $user->toArray(),
+                'result'    => $user,
             ];
 
-            return response()->json($response);
+            return $this->sendResponse($response);
         } catch (ValidatorException $e) {
 
-            return response()->json([
+            return $this->sendResponse([
                 'error'   => true,
-                'message' => $e->getMessageBag()
-            ]);
+                'messages' => $e->getMessageBag()
+            ], 422);
         }
     }
 }

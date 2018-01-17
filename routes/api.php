@@ -11,4 +11,5 @@
 |
 */
 
-Route::resource('users', 'UserAPIController');
+Route::post('users/{id}', 'UserAPIController@update');
+Route::resource('users', 'UserAPIController', ['only' => ['index', 'show']]);

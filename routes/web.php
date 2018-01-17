@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/{id?}', function () {
     return view('frontend');
 });

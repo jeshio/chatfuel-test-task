@@ -1,0 +1,11 @@
+@import '~styles/components/tables';
+
+.Users-list {
+  &__table {
+    @include default-table();
+  }
+
+  &__avatar {
+    width: 70px;
+  }
+}
