@@ -27,7 +27,8 @@ class AppCore {
     // языковые переменные
     Vue.use(vuexI18n.plugin, store);
     (Vue as any).i18n.add('en', Locales.en);
-    (Vue as any).i18n.set('en');
+    (Vue as any).i18n.add('ru', Locales.ru);
+    (Vue as any).i18n.set('ru');
 
     // роутинг
     const router = new VueRouter({

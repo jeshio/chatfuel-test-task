@@ -1,5 +1,6 @@
 @import '~styles/mixins';
 @import '~styles/components/buttons';
+@import '~foundation-sites/scss/foundation';
 
 .Users-list {
   padding-top: 10px;
@@ -15,14 +16,49 @@
     }
   }
 
+  &__right {
+    float: right;
+  }
+
+  &__top-controls {
+    margin-bottom: 5px;
+  }
+
+  &__btn {
+    @include btn();
+    margin: 0;
+
+    &.-page {
+      margin: 0 10px;
+      @include btn-gray;
+    }
+
+    &.-md {
+      @include show-for('medium');
+    }
+
+    &.-sm {
+      @include hide-for('medium');
+      min-width: 65px;
+      padding: 0.72em 1em;
+    }
+  }
+
   &__avatar {
+    $avatar-size: 80px;
     padding-top: 7px;
     text-align: center;
+    height: $avatar-size + 15px;
+    width: $avatar-size;
+    min-width: $avatar-size;
+    overflow: hidden;
 
-    img {
-      width: 80px;
-      height: 80px;
+    div {
+      width: $avatar-size;
+      height: $avatar-size;
       border-radius: 5px;
+      background-size: cover;
+      background-position: 50% 50%;
     }
   }
 
@@ -56,13 +92,5 @@
   &__controls {
     margin: 15px 0;
     text-align: center;
-  }
-
-  &__btn-prev {
-    @include btn();
-  }
-
-  &__btn-next {
-    @include btn();
   }
 }

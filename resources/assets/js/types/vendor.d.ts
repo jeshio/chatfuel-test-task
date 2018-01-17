@@ -5,3 +5,5 @@ declare module 'vuex-i18n';
 declare module 'vform';
 
 declare module 'vue-head';
+
+declare module 'vue-awesome';

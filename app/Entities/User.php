@@ -16,7 +16,7 @@ class User extends Model implements Transformable
 
     public function getAvatarUrlAttribute()
     {
-        return 'http://lorempixel.com/300/300/';
+        return 'https://dummyimage.com/'.rand(200,600).'x'.rand(200,600);
     }
 
 }

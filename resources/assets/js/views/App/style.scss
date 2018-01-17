@@ -2,6 +2,9 @@
 @import "~styles/variables";
 
 .App {
+  position: relative;
+  min-height: 100%;
+
   &__layout {
     @include layout();
   }
@@ -19,17 +22,59 @@
       @include colOff(0);
     }
     &.-title {
-      padding: 30px 20px;
+      padding: 45px 0 20px 0;
+      z-index: 1;
     }
     &.-blue-bg {
+      z-index: -1;
       background: $main-color;
       color: #fff;
     }
   }
 
-  &__title {
-    color: #333;
+  &__bg-fill {
+    height: 105px;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+
+    background: lighten($main-color, 7);
   }
+
+  &__content {
+    padding-bottom: 40px;
+  }
+
+  .footer {
+    height: 50px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: $main-color;
+    color: rgba(255, 255, 255, .8);
+    padding-top: 15px;
+
+    &__content {
+      @include row();
+    }
+
+    &__col {
+      @include col(9);
+      @include colOff(1);
+      text-align: right;
+    }
+  }
+
+  &__sub-title {
+    font-family: Impact, Tahoma, sans-serif;
+    font-weight: 500;
+  }
+
+  &__title {
+    font-family: "Segoe UI Light", "Bebas Neue Light", "Calibri Light", "Century Gothic", sans-serif;
+    font-weight: 500;
+  }
+
   &__text {
     color: green;
   }

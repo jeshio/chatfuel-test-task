@@ -13,3 +13,13 @@
 @mixin fullBtn() {
   @include button(true);
 }
+
+@mixin btn-gray() {
+  background: #ddd;
+  color: #11422e;
+  border: 1px solid #ccc;
+
+  &:hover {
+    background: #cacaca;
+  }
+}

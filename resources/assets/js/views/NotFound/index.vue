@@ -1,8 +1,8 @@
 <template lang="pug">
   include ../../tools/mixins.pug
   +b.NotFound
-    +e.p Страница не найдена
-    router-link(to="/") На главную
+    +e.P.text Страница не найдена.
+    router-link(to="/") Перейти на главную
 </template>
 
 <script lang="ts">

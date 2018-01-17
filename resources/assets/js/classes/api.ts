@@ -7,7 +7,7 @@ import {BackendError} from "./backend-error";
  */
 export default class Api {
   private static getBackendErrorFromResponse(error: AxiosResponse): BackendError {
-    return new BackendError((error as any).response.status, (error as any).response.statusText, (error as any).response.data.messages || {});
+    return new BackendError((error as any).response.statusText, (error as any).response.status, (error as any).response.data.messages || {});
   }
 
   protected static requestGet(url: string, cb: (response: AxiosResponse) => void, errorCb: (error: BackendError) => void, request: object = {}) {

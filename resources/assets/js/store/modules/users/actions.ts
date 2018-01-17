@@ -20,11 +20,14 @@ export default {
   },
   getItem(store: ActionContext<UserState, any>, id: number) {
     store.commit(t.RECEIVE_ITEM_REQUEST);
-    return UsersApi.getOne((response) => {
-      store.commit(t.RECEIVE_ITEM_SUCCESS, response);
-    }, (error) => {
-      store.commit(t.RECEIVE_ITEM_FAILURE, error);
-    }, id);
+    return new Promise((resolve, reject) =>
+      UsersApi.getOne((response) => {
+        store.commit(t.RECEIVE_ITEM_SUCCESS, response);
+        resolve();
+      }, (error) => {
+        store.commit(t.RECEIVE_ITEM_FAILURE, error);
+        reject();
+      }, id));
   },
   editName(store: ActionContext<UserState, any>) {
     store.commit(t.EDIT_NAME);
@@ -47,7 +50,7 @@ export default {
   /**
    * Сбрасывает состояние
    */
-  resetState(store: ActionContext<UserState, any>) {
-    store.commit(t.RESET_STATE);
+  resetDetailState(store: ActionContext<UserState, any>) {
+    store.commit(t.RESET_DETAIL_STATE);
   }
 };

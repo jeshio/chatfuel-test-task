@@ -6,6 +6,10 @@ const NotFound = () => import('./views/NotFound/index.vue');
 
 export default [
   {
+    path: '/error404',
+    component: NotFound,
+  },
+  {
     path: '/',
     component: Users,
     children: [

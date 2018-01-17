@@ -43,6 +43,7 @@ export default {
   },
   [t.CANCEL_EDIT_NAME](state: UserState) {
     state.editForm.name = false;
+    state.error = new RequestError;
   },
   [t.UPDATE_ITEM_REQUEST](state: UserState) {
     state.loading = true;
@@ -52,18 +53,22 @@ export default {
     state.loading = false;
     state.item.name = response.result.name;
     state.editForm.name = false;
+    // обновляем в общем списке
+    const user = state.items.find(user => user.id === state.item.id);
+    if (user)
+      user.name = state.item.name;
   },
   [t.UPDATE_ITEM_FAILURE](state: UserState, errorMessage: BackendError) {
     state.loading = false;
     state.error = new RequestError(true, errorMessage.message, errorMessage.code, errorMessage.validationErrors);
   },
 
-  // сброс состояния
-  [t.RESET_STATE](state: UserState) {
+  // сброс состояния с детальной информацией
+  [t.RESET_DETAIL_STATE](state: UserState) {
     const newState = new UserState;
-    // чтобы применить изменения проходимся по всем полям и обновляем их
-    for (const field in newState) {
-      state[field] = newState[field];
-    }
+    state.loading = newState.loading;
+    state.item = newState.item;
+    state.editForm = newState.editForm;
+    state.error = newState.error;
   },
 };
