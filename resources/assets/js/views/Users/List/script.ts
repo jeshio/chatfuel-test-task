@@ -31,7 +31,7 @@ export default class UsersList extends Vue {
   @ModuleState nextPageUrl: string;
   @ModuleState loading: boolean;
 
-  title = 'Список пользователей';
+  title = Vue.i18n.translate('titles.user_list');
 
   created() {
     this.$root.$emit('set-title', this.title);

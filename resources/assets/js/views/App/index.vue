@@ -8,7 +8,7 @@
           +e.row
             +e.col.-title
               +e.H1.title {{ title }}
-              +e.H2.sub-title Администрирование
+              +e.H2.sub-title {{ $t('titles.administrating') }}
       +e.layout
         +e.row
           +e.col
@@ -17,7 +17,8 @@
     +b.footer
       +e.content
         +e.col
-          | Тестовое задание. 2018
+          | Тестовое задание by
+          a(href="mailto:jeshio@yandex.ru")  jeshio@yandex.ru
 
 </template>
 <script src="./script.ts" lang="ts"></script>

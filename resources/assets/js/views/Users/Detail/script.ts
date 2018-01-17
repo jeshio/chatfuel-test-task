@@ -42,7 +42,7 @@ export default class UsersDetail extends Vue {
   form = new Form({
     name: '',
   });
-  title = 'Информация о пользователе';
+  title = Vue.i18n.translate('titles.user_detail');
 
   getTitle() { return `${this.title} ${this.item ? this.item.name : ''}` };
 

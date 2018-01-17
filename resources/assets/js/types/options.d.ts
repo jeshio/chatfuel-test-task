@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 declare module 'vue/types/vue' {
   interface VueConstructor {
+    i18n?: any;
     router?: VueRouter;
     axios?: Axios;
   }

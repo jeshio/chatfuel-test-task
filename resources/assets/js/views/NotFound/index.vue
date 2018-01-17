@@ -1,8 +1,8 @@
 <template lang="pug">
   include ../../tools/mixins.pug
   +b.NotFound
-    +e.P.text Страница не найдена.
-    router-link(to="/") Перейти на главную
+    +e.P.text {{ $t('navigation.not_found') }}
+    router-link(to="/") {{ $t('navigation.to_index') }}
 </template>
 
 <script lang="ts">
@@ -14,7 +14,7 @@
     head: { title: function () { return { inner: this.title } } },
   })
   export default class UsersList extends Vue {
-    title = 'Ошибка 404';
+    title = Vue.i18n.translate('titles.error', { code: 404 });
 
     created() {
       this.$root.$emit('set-title', this.title);
