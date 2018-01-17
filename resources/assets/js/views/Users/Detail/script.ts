@@ -13,7 +13,10 @@ import {Route} from "vue-router";
 const ModuleAction = namespace('users', Action);
 const ModuleState = namespace('users', State);
 
-@Component
+@Component({
+  // @ts-ignore
+  head: { title: function() { return { inner: this.getTitle() } } },
+})
 export default class UsersDetail extends Vue {
   @ModuleAction getItem: any;
   @ModuleAction editName: any;
@@ -29,6 +32,9 @@ export default class UsersDetail extends Vue {
   form = new Form({
     name: '',
   });
+  title = 'Информация о пользователе';
+
+  getTitle() { return `${this.title} ${this.item ? this.item.name : ''}` };
 
   beforeRouteLeave (to: Route, from: Route, next: () => void) {
     this.resetState();
@@ -36,10 +42,14 @@ export default class UsersDetail extends Vue {
   }
 
   created() {
-    console.log(this.form);
+    this.$root.$emit('set-title', this.title);
     this.userId = +this.$route.params.id;
     this.getItem(this.userId)
-      .then(() => this.form.name = this.item.name);
+      .then(() => {
+        this.form.name = this.item.name;
+        this.$emit('updateHead');
+      });
+
   }
 
   edit() {
@@ -49,7 +59,10 @@ export default class UsersDetail extends Vue {
 
   save() {
     this.saveName({ name: this.form.name, id: this.userId })
-      .then(() => this.form.name = this.item.name, () => this.form.errors.set(this.error.validationErrors));
+      .then(() => {
+        this.form.name = this.item.name;
+        this.$emit('updateHead');
+      }, () => this.form.errors.set(this.error.validationErrors));
   }
 
   cancel() {

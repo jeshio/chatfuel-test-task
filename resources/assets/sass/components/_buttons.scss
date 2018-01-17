@@ -1,10 +1,13 @@
 // настройки
 // https://foundation.zurb.com/sites/docs/button.html#sass-variables
 
+@import '../variables';
 @import '~foundation-sites/scss/foundation';
 
 @mixin btn() {
   @include button();
+  min-width: 110px;
+  margin: 0 10px;
 }
 
 @mixin fullBtn() {

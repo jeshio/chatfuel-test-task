@@ -5,7 +5,7 @@
       +e.layout
         +e.row
           +e.col.-title
-            +e.H1 Title
+            +e.H1 {{ title }}
     +e.layout
       +e.row
         +e.col

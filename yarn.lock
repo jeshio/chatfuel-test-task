@@ -7079,6 +7079,10 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vue-awesome@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.npmjs.org/vue-awesome/-/vue-awesome-2.3.4.tgz#a8b06a21dd95a5787e108561be89e216fd9a78e6"
+
 vue-axios@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/vue-axios/-/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
@@ -7086,6 +7090,10 @@ vue-axios@^2.0.2:
 vue-class-component@^6.1.2:
   version "6.1.2"
   resolved "https://registry.npmjs.org/vue-class-component/-/vue-class-component-6.1.2.tgz#87ac0265b0db71a3f49f10d90e4f69f9be9c2fbd"
+
+vue-head@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.npmjs.org/vue-head/-/vue-head-2.0.11.tgz#d063b87d99e8898002c4967f558f82437b23f72a"
 
 vue-hot-reload-api@^2.2.0:
   version "2.2.4"

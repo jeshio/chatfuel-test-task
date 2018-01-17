@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './views/App/index.vue';
 import VueRouter from "vue-router";
+import VueHead from 'vue-head'
 import VueAxios from 'vue-axios';
 import { sync } from 'vuex-router-sync';
 import axios from 'axios';
@@ -18,6 +19,7 @@ class AppCore {
 
   // инициализация Vue
   private init() {
+    Vue.use(VueHead);
     Vue.use(VueRouter);
     Vue.use(VueAxios, axios);
     (Vue as any).axios.defaults.baseURL = '/api/';

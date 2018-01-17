@@ -1,4 +1,8 @@
+$main-color: #208ef0;
+
 $text-color: #444;
 $titles-color: #334;
+$link-color: #4d84c3;
 
-$blue-color: #208ef0;
+$button-background: darken($main-color, 10);
+$button-background-hover: darken($button-background, 10);

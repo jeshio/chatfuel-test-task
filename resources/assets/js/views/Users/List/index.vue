@@ -1,17 +1,17 @@
 <template lang="pug">
   include ../../../tools/mixins.pug
   +b.Users-list
-    +e.H2.title Список пользователей
-    +e.TABLE.table
-      +e.TR(v-for="user in items").row
-        +e.TD.avatar
-          router-link(:to="`/${user.id}`")
+    +e.items
+      +e.row(v-for="user in items")
+        +e.avatar
+          router-link(:to="`/${user.id}`", :title="user.name")
             img(:src="user.avatarUrl", width="60", height="50", :title="user.name")
-        +e.TD.name
+        +e.name
           router-link(:to="`/${user.id}`") {{ user.name }}
+        +e.ROUTER-LINK(:to="`/${user.id}`").right-array >
     +e.controls
-      +e.BUTTON.btn(v-on:click="prevPage()", v-if="previousPageUrl") Назад
-      +e.BUTTON.btn(v-on:click="nextPage()", v-if="nextPageUrl") Вперёд
+      +e.A.btn-prev(href="#", v-on:click.prevent="prevPage()", v-if="previousPageUrl") Назад
+      +e.A.btn-next(href="#", v-on:click.prevent="nextPage()", v-if="nextPageUrl") Вперёд
 </template>
 
 <script src="./script.ts" lang="ts"></script>

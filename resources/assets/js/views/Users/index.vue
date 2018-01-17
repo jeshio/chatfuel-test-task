@@ -1,7 +1,6 @@
 <template lang="pug">
   include ../../tools/mixins.pug
   +b.Users
-    +e.H1.title Администрирование пользователей
     router-view
 </template>
 

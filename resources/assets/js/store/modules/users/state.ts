@@ -9,7 +9,7 @@ export interface User
 
 export class UserState extends ModuleState {
   [key: string]: any; // для доступа к динамическам свойствам
-  
+
   item: User = {
     id: undefined,
     name: "",

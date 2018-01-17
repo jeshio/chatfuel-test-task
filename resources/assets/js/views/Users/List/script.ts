@@ -10,7 +10,10 @@ import {User} from "../../../store/modules/users/state";
 const ModuleAction = namespace('users', Action);
 const ModuleState = namespace('users', State);
 
-@Component
+@Component({
+  // @ts-ignore
+  head: { title: function () { return { inner: this.title } } },
+})
 export default class UsersList extends Vue {
   @ModuleAction getItems: any;
   @ModuleAction prevPage: any;
@@ -19,7 +22,10 @@ export default class UsersList extends Vue {
   @ModuleState previousPageUrl: string;
   @ModuleState nextPageUrl: string;
 
+  title = 'Список пользователей';
+
   created() {
+    this.$root.$emit('set-title', this.title);
     this.getItems();
   }
 }
